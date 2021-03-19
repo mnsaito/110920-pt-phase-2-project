@@ -87,11 +87,13 @@ For my base model, R-squared is 0.387, so the model only explains 38.7% of the v
 The overall p-value is 0.00, so the model is statistically significant at an alpha of 0.05
 
 In this case, it is unclear what the intercept represents (since it is a property with 0 square feet of living space and a 0 square foot lot) but that property is expected to sell for \$19,007
- - Note: since the model uses the square root of the sale price, the intercept was squared to determine this value
+ - Note: since the model calculates the square root of the sale price, the intercept was squared to determine this value
  
 Each additional square footage of living space is expected to increase the sale price by \$242 
+ - Note: since the model calculates the square root of the sale price, the coefficient for living space was squared to determine this value
 
 Each additional square footage of lot space is expected to increase the sale price by \$0.02
+ - Note: since the model calculates the square root of the sale price, the coefficient for lot size was squared to determine this value
 
 p-values for intercept and coefficients are significant at an alpha of 0.05.  Thus, this model finds that the relationship between sale price, living space and lot size is significant
 
