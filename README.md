@@ -33,7 +33,6 @@ A client in King County, WA would like to advise homeowners regarding home impro
 
 ### Setup Instructions
 
-TODO: add setup instructions (e.g. the name of the Conda environment file)
 cd into the project folder
 run conda env create --file environment.yml
 
@@ -63,26 +62,36 @@ The [porch data box plot](reports/figures/porch_box.png), [heating system box pl
 ## Data Preparation
 
 I removed entries that did not relate to residential properties
+
 I also removed entries with very low or very high outliers for sale price, very low outliers for living space square footage, and entries with high sales price with low square footage or low sales price with high square footage
+
 To analyze the effect of adding a porch (whether open, enclosed or both), I used the information on square footage of open porches and enclosed porches to categorize the porch data as open, enclosed, both or none.  I then used one hot encoding, dropped the "no porch" option, and fed the data into my model.
+
 To analyze the effect of upgrading to a forced-air heating system, I replaced the codes for the heat systems to identify those that are forced-air versus all others.  I then used label encoder and fed the data into my model.
+
 To analyze the effect of converting an attached garage into a bedroom, I categorized all properties with an attached garage, and determined the number of bedrooms for those properties.  I categorized properties that did not have an attached garage and included an additional bedroom (compared to those with an attached garage) as renovated.  I then used label encoder and fed the data into my model.
 
 
 ## Modeling
 
-After running a number of iterations, I chose to use square root of the sale price, square root of the living space, and square root of the lot size as my base model.  My final base model is: $ \sqrt{sale price} = {\beta}_{0} + {\beta}_{1}\sqrt{living} + {\beta}_{2}\sqrt{lot}$
+After running a number of iterations, I chose to use square root of the sale price, square root of the living space, and square root of the lot size as my base model.  My final base model is: 
+
+$ \sqrt{sale price} = {137.87 + 15.55 * sqrt{living} - 0.14 * sqrt{lot}$
 
 
 ## Evaluation
 
 For my base model, R-squared is 0.387, so the model only explains 38.7% of the variance in Sale Price
+
 The overall p-value is 0.00, so the model is statistically significant at an alpha of 0.05
+
 In this case, it is unclear what the intercept represents (since it is a property with 0 square feet of living space and a 0 square foot lot) but that property is expected to sell for \$19,007
  - Note: since the model uses the square root of the sale price, the intercept was squared to determine this value
+ 
 For each additional square footage of living space, we expect the sale price to increase by \$242 
- - because each additional square root of living space increases the square root of the sales price by \$15.5514
+
 For each additional square footage of lot space, we expect the sale price to decrease by \$0.02
+
 p-values for intercept and coefficients are significant at an alpha of 0.05.  Thus, this model finds that the relationship between sale price, living space and lot size is significant
 
 ### Assumptions of Linear Regression:
