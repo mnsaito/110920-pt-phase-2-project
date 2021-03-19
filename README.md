@@ -33,8 +33,7 @@ A client in King County, WA would like to advise homeowners regarding home impro
 
 ### Setup Instructions
 
-cd into the project folder
-run conda env create --file environment.yml
+from the project folder, run: conda env create --file environment.yml
 
 ## Business Understanding
 
@@ -46,7 +45,7 @@ The client would like us to investigate various home improvement projects to det
 ## Data Understanding
 
 I used three datasets from the King County Department of Assessments for my analysis:
- - Real Property Sales Records, which includes information for each sale of real property between 2015 and 2020
+ - Real Property Sales Records, which includes property sales information between 2015 and 2020
  - Residential Building Records, which includes descriptions for each residential building
  - Parcel Records, which includes the details for each parcel of real property
  
@@ -76,7 +75,7 @@ To analyze the effect of converting an attached garage into a bedroom, I categor
 
 After running a number of iterations, I chose to use square root of the sale price, square root of the living space, and square root of the lot size as my base model.  My final base model is: 
 
-$ \sqrt{sale price} = {137.87 + 15.55 * sqrt{living} - 0.14 * sqrt{lot}$
+&radic;(sale price) = 137.87 + 15.55 * &radic;(living space) - 0.14 * &radic;(lot size) &radic(lot size);
 
 
 ## Evaluation
@@ -88,44 +87,45 @@ The overall p-value is 0.00, so the model is statistically significant at an alp
 In this case, it is unclear what the intercept represents (since it is a property with 0 square feet of living space and a 0 square foot lot) but that property is expected to sell for \$19,007
  - Note: since the model uses the square root of the sale price, the intercept was squared to determine this value
  
-For each additional square footage of living space, we expect the sale price to increase by \$242 
+Each additional square footage of living space is expected to increase the sale price by \$242 
 
-For each additional square footage of lot space, we expect the sale price to decrease by \$0.02
+Each additional square footage of lot space is expected to increase the sale price by \$0.02
 
 p-values for intercept and coefficients are significant at an alpha of 0.05.  Thus, this model finds that the relationship between sale price, living space and lot size is significant
 
 ### Assumptions of Linear Regression:
 ***Linearity***
-The null hypothesis is that the model is linearly predicted by the features.  The alternative hypothesis is that it is not.  Thus returning a high Rainbow p-value means that the current model does not violate the linearity assumption
+The null hypothesis is that the model is linearly predicted by the features.  The alternative hypothesis is that it is not.  My base model returned a high Rainbow p-value.  Thus, my base model does not violate the linearity assumption
 
 ***Normality***
-The null hypothesis is that the residuals are normally distributed.  The alternative hypothesis is that they are not.  Thus returning a p-value of 0 under the Jarque-Bera test means that the current model violates the normality assumption.
+The null hypothesis is that the residuals are normally distributed.  The alternative hypothesis is that they are not.  My model returned a p-value of 0 under the Jarque-Bera test.  Thus, my model violates the normality assumption.
 
 ***Homoscadasticity***
-The null hypothesis is homoscedasticity.  The alternative hypothesis is heteroscedasticity.  Thus returning a low F-statistic p-value means that the current model violates the homoscedasticity assumption.
+The null hypothesis is homoscedasticity.  The alternative hypothesis is heteroscedasticity.  My model returned a low F-statistic p-value.  Thus, my model violates the homoscedasticity assumption.
 
 ***Independence***
-VIFs are less than 5, so it is reasonable to say that we are not violating the independence assumption (i.e., the features are not too colinear).
+The VIFs in my model are less than 5, so it is reasonable to say that it does not violate the independence assumption (i.e., the features are not too colinear).
 
-Because this model violates both the normality and the homoscadasticity assumptions, there appears to be a link between the independent variables and the error term.  In other words, there is likely a feature missing from the model, which should be investigated further.
+Because my base model violates both the normality and the homoscadasticity assumptions, there appears to be a link between the independent variables and the error term.  In other words, there is likely a feature missing from the model, which should be investigated further.
 
 ## Conclusion
 
 Based on my analysis:
- - The addition of an open porch will increase the sale price of a home by \\$23
- - The addition of an enclosed porch will increase the sale price of a home by \\$1826
- - The addition of both an open porch and an enclosed porch will increase the sale price of a home by \\$4972
- - The conversion of a heating system to forced-air will decrease the sale price of a home by \\$2427
- - The conversion of an attached garage to a bedroom will increase the sale price of a home by \\$6256
+ - The addition of an open porch is expected to increase the sale price of a home by \$23
+ - The addition of an enclosed porch is expected to increase the sale price of a home by \$1826
+ - The addition of both an open porch and an enclosed porch is expected to increase the sale price of a home by \$4972
+ - The conversion of a heating system to forced-air is expected to decrease the sale price of a home by \$2427
+ - The conversion of an attached garage to a bedroom is expected to increase the sale price of a home by \$6256
  
 I provide the following recommendations to the client:
- - Although the addition of an open porch is expected to increase the sale price of a home, according to my model, it will only increase the sale price by \\$23, which is likely to be less than the cost of adding an open porch.  Thus, I do not recommend adding an open porch to increase the sale price of a home.
- - Both the addition of an enclosed porch, or the addition of both an enclosed porch and an open porch is expected to increase the sale price of a home by \\$1826 and \\$4972, respectively, so I recommend this option be investigated further (i.e., the cost for adding these features should be evaluated to determine if it is worth the cost of the renovation).
- - The conversion to a forced-air heating system is expected to decrease the sale price of a home, so I do not recommend this renovation
- - The conversion of an attached garage to a bedroom is expected to increase the sale price by \\$6256, so I recommend this option be investigated further to determine whether it is worth the cost of the renovation
+ - The conversion of an attached garage to a bedroom is expected to increase the sale price by \$6256, so I recommend the client consider this renovation.
+ - Both the addition of an enclosed porch, or the addition of both an enclosed porch and an open porch is expected to increase the sale price of a home by \$1826 and \$4972, respectively, so I recommend the client consider these renovations.
+ - Although the addition of an open porch is expected to increase the sale price of a home, according to my model, it will only increase the sale price by \$23, which is likely to be less than the cost of adding an open porch.  Thus, I do not recommend adding an open porch to increase the sale price of a home.
+ - The conversion to a forced-air heating system is expected to decrease the sale price of a home, so I do not recommend this renovation.
  
 ### Next Steps
  - As discussed in my Final Analysis Notebook, some anomolies were identified in the models that need to be investigated further
- - Neighborhoods appears to have a significant effect on the sale price, so I recommend that the sale price be evaluated based on the neighborhood in which the property is located
- - Certain features are expected to increase the sale price of a home.  I recommend investigating the cost for adding these features to determine whether the feature is worth the cost of the renovation
-     - for example, consider effect of converting open porch into an enclosed porch
+ - If the client has a specific property in mind, I recommend that we target our analysis based on the specific property
+     - For example, neighborhoods appear to have a significant effect on the sale price, so I recommend that the sale price be evaluated based on the neighborhood in which the property is located
+     - If the property already includes an open porch, I recommend considering the effect of converting the open porch into an enclosed porch
+ - I also recommend investigating the cost for the renovation to determine whether it is worth the investment
