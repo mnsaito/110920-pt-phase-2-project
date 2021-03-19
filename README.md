@@ -77,7 +77,7 @@ To analyze the effect of converting an attached garage into a bedroom, I categor
 
 After running a number of iterations, I chose to use square root of the sale price, square root of the living space, and square root of the lot size as my base model.  My final base model is: 
 
-&radic;<SPAN STYLE="text-decoration:overline">sale price</SPAN> = 137.87 + 15.55 * &radic;<SPAN STYLE="text-decoration:overline">living space</SPAN> - 0.14 * &radic<SPAN STYLE="text-decoration:overline">lot size</SPAN>
+&radic;<SPAN STYLE='text-decoration:overline'>sale price</SPAN> = 137.87 + 15.55 * &radic;<SPAN STYLE="text-decoration:overline">living space</SPAN> - 0.14 * &radic;<SPAN STYLE="text-decoration:overline">lot size</SPAN>
 
 
 ## Evaluation
@@ -129,5 +129,5 @@ I provide the following recommendations to the client:
  - As discussed in my Final Analysis Notebook, some anomolies were identified in the models that need to be investigated further
  - If the client has a specific property in mind, I recommend that we target our analysis based on the specific property
      - For example, neighborhoods appear to have a significant effect on the sale price, so I recommend that the sale price be evaluated based on the neighborhood in which the property is located
-     - If the property already includes an open porch, I recommend considering the effect of converting the open porch into an enclosed porch
+     - As another example, if the property already includes an open porch, I recommend considering the effect of converting the open porch into an enclosed porch
  - I also recommend investigating the cost for the renovation to determine whether it is worth the investment
