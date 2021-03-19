@@ -33,7 +33,9 @@ A client in King County, WA would like to advise homeowners regarding home impro
 
 ### Setup Instructions
 
-from the project folder, run: conda env create --file environment.yml
+To create a replica of the environment needed to run my notebook, from the project folder, run: 
+
+conda env create --file environment.yml
 
 ## Business Understanding
 
@@ -75,7 +77,7 @@ To analyze the effect of converting an attached garage into a bedroom, I categor
 
 After running a number of iterations, I chose to use square root of the sale price, square root of the living space, and square root of the lot size as my base model.  My final base model is: 
 
-&radic;&#773(sale price); = 137.87 + 15.55 * &radic;&#x305(living space); - 0.14 * &radic;(lot size)
+&radic;<SPAN STYLE="text-decoration:overline">sale price</SPAN> = 137.87 + 15.55 * &radic;<SPAN STYLE="text-decoration:overline">living space</SPAN> - 0.14 * &radic<SPAN STYLE="text-decoration:overline">lot size</SPAN>
 
 
 ## Evaluation
