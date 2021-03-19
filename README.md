@@ -75,7 +75,7 @@ To analyze the effect of converting an attached garage into a bedroom, I categor
 
 After running a number of iterations, I chose to use square root of the sale price, square root of the living space, and square root of the lot size as my base model.  My final base model is: 
 
-&radic;(sale price) = 137.87 + 15.55 * &radic;(living space) - 0.14 * &radic;(lot size) &radic(lot size);
+&radic;&#773(sale price); = 137.87 + 15.55 * &radic;&#x305(living space); - 0.14 * &radic;(lot size)
 
 
 ## Evaluation
