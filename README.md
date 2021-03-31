@@ -55,6 +55,8 @@ Parcel,  Residential, and Real Property Sales data were filtered to focus on hom
 
 The final model with the target variable Sale Price included three features: Total Living Space(SqFtTotLiving), Total Bathrooms, and ViewUtilization. 
 
+![Visualization of residuals](Images/Prediction1.png)
+
 ## Evaluation
 
 The model underwent three interations, each time investigating how well the model address the four assumptions of linear regressions: Linearity, Normality, Homoscadacity. When multuple independent variables were included, the assumption of Independence was also included. While each iteration of the model violated these assumptions, the final model showed improvement compared the second iteration in Linearity, Normality, Homoscadacity, and Independence. 
