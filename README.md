@@ -65,8 +65,11 @@ Below, I transformed the data using both log transform and square root, and eval
 
 ![transformed the data](reports/figures/histogram_transformed.png)
 
-The [porch data box plot](reports/figures/porch_box.png), [heating system box plot](reports/figures/forced_air_box.png), and [renovated garage data box plot](reports/figures/garage_box.png) do not indicate that there is a substantial difference between the categorical groups in terms of their spread and where the means fall.  Based on this information, it is unclear whether these features will be sufficient to explain the difference in sale price.
+The box plots below do not indicate that there is a substantial difference between the categorical groups in terms of their spread and where the means fall.  Based on this information, it is unclear whether these features will be sufficient to explain the difference in sale price.
  
+![porch data box plot](reports/figures/porch_box.png)
+![heating system box plot](reports/figures/forced_air_box.png)
+![renovated garage data box plot](reports/figures/garage_box.png)
 
 ## Data Preparation
 
