@@ -53,8 +53,9 @@ I used three datasets from the King County Department of Assessments for my anal
  
 A [data dictionary](references/King_County_Home_Sales_Data_Dictionary.pdf) describes the data within each of the datasets, and a "Look Up" table explains the meaning of many of the attributes included in the datasets.
 
+The correlation matrix indicates that the square footage of the total living space is highly correlated to the sale price, and that the square footage of the lot size is most negatively correlated to the sale price.  The correlation matrix also indicates that year built is negatively correlated to sale price, but it appears to be positively correlated with total living space.  Accordingly, if total living space is included in the base model, it is unlikely that year built will also be included in the model.
+
 ![correlation matrix](reports/figures/heatmap.png)
-The above correlation matrix indicates that the square footage of the total living space is highly correlated to the sale price, and that the square footage of the lot size is most negatively correlated to the sale price.  The correlation matrix also indicates that year built is negatively correlated to sale price, but it appears to be positively correlated with total living space.  Accordingly, if total living space is included in the base model, it is unlikely that year built will also be included in the model.
 
 Because the [histograms for the sale price and living space square footage](reports/figures/histogram_pretransform.png) are skewed to the right, I [transformed the data](reports/figures/histogram_transformed.png) using both log transform and square root, and evaluated both the original data and the transformed data to derive my base model.
 
