@@ -53,11 +53,17 @@ I used three datasets from the King County Department of Assessments for my anal
  
 A [data dictionary](references/King_County_Home_Sales_Data_Dictionary.pdf) describes the data within each of the datasets, and a "Look Up" table explains the meaning of many of the attributes included in the datasets.
 
-The correlation matrix indicates that the square footage of the total living space is highly correlated to the sale price, and that the square footage of the lot size is most negatively correlated to the sale price.  The correlation matrix also indicates that year built is negatively correlated to sale price, but it appears to be positively correlated with total living space.  Accordingly, if total living space is included in the base model, it is unlikely that year built will also be included in the model.
+The correlation matrix below indicates that the square footage of the total living space is highly correlated to the sale price, and that the square footage of the lot size is most negatively correlated to the sale price.  The correlation matrix also indicates that year built is negatively correlated to sale price, but it appears to be positively correlated with total living space.  Accordingly, if total living space is included in the base model, it is unlikely that year built will also be included in the model.
 
 ![correlation matrix](reports/figures/heatmap.png)
 
-Because the [histograms for the sale price and living space square footage](reports/figures/histogram_pretransform.png) are skewed to the right, I [transformed the data](reports/figures/histogram_transformed.png) using both log transform and square root, and evaluated both the original data and the transformed data to derive my base model.
+The histograms below for the sale price and living space square footage are skewed to the right:
+
+![histograms for the sale price and living space square footage](reports/figures/histogram_pretransform.png)
+
+Below, I transformed the data using both log transform and square root, and evaluated both the original data and the transformed data to derive my base model:
+
+![transformed the data](reports/figures/histogram_transformed.png)
 
 The [porch data box plot](reports/figures/porch_box.png), [heating system box plot](reports/figures/forced_air_box.png), and [renovated garage data box plot](reports/figures/garage_box.png) do not indicate that there is a substantial difference between the categorical groups in terms of their spread and where the means fall.  Based on this information, it is unclear whether these features will be sufficient to explain the difference in sale price.
  
